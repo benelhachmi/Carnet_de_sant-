@@ -32,27 +32,13 @@ export default function Carnet_medical({navigation}) {
               
                <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("Form_poid")}}>
                <FontAwesome5 name="weight" size={30} color="black" />
-               <Text style={styles.text}>Poids et Mesures Medicale   </Text>
+               <Text style={styles.text}>Weights and Medical Measures  </Text>
                </TouchableOpacity>
 
                
-               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("FormTension")}}>
+               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("")}}>
                <FontAwesome name="tencent-weibo" size={30} color="black" />
                <Text style={styles.text}>Tension artérielle  </Text>
-               </TouchableOpacity>
-        
-
-        
-               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("FormRegime")}}>
-               <MaterialCommunityIcons name="silverware-fork-knife" size={30} color="black" />
-               <Text style={styles.text}>Régime alimentaire  </Text>
-               </TouchableOpacity>
-        
-
-        
-               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("Formallergie")}}>
-               <MaterialIcons name="open-in-new" size={30} color="black" />
-               <Text style={styles.text}>Allérgies</Text>
                </TouchableOpacity>
         
 
@@ -61,22 +47,9 @@ export default function Carnet_medical({navigation}) {
                <MaterialCommunityIcons name="doctor" size={40} color="black" />
                <Text style={styles.text}>Médcins Précedents</Text>
                </TouchableOpacity>
-               
-               
-               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("FormMedicaments")}}>
-               <FontAwesome5 name="pills" size={30} color="black" />
-               <Text style={styles.text}>Medicaments  </Text>
-               </TouchableOpacity>
-               
-               <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("TestLab")}}>
-               <Entypo name="lab-flask" size={30} color="black" />
-               <Text style={styles.text}>Testes labortoires </Text>
-               </TouchableOpacity>
 
-               <TouchableOpacity style={styles.button}>
-               <FontAwesome5 name="file-export" size={30} color="black" />
-               <Text style={styles.text}>Exporter les données </Text>
-               </TouchableOpacity>
+        
+              
 
                
         

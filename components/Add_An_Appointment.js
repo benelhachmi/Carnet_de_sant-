@@ -7,16 +7,15 @@ import firebase from '../database/firebase';
 
 
 
-export default class Profil extends Component {
+export default class Add_An_Appointment extends Component {
   
   constructor() {
     super();
     this.state = { 
-      First_name: '',
-      Last_name: '', 
-      date_of_birth: '',
-      weight:'',
-      Phone:'',
+      date: '',
+      location: '', 
+      hour: '',
+      doctor:'',
       isLoading: false
     }
   }
@@ -29,7 +28,7 @@ export default class Profil extends Component {
 
   profilregister = () => {
    //pour iviter les champs vide
-    if(this.state.First_name== '' && this.state.Last_name === '' && this.state.date_of_birth === ''&& this.state.weight ===''&&this.state.Phone ==='') {
+    if(this.state.date== '' && this.state.location === '' && this.state.hour === ''&& this.state.doctor ==='') {
       Alert.alert('Enter details to signup!')
     } 
     else {
@@ -38,13 +37,12 @@ export default class Profil extends Component {
       })
      const user =firebase.auth().currentUser;
      if(user != null){
-       firebase.database().ref('profils/' +user.uid).set(
+       firebase.database().ref('Appointment/' +user.uid).set(
          {
-          First_name : this.state.First_name,
-          Last_name : this.state.Last_name,
-          date_of_birth : this.state.date_of_birth,
-          weight:this.state.weight,
-          Phone:this.state.Phone,
+            date : this.state.date,
+            location : this.state.location,
+            hour : this.state.hour,
+            doctor:this.state.doctor,
          })
      }  
        this.props.navigation.navigate('Home') 
@@ -69,55 +67,44 @@ export default class Profil extends Component {
       >
 
       <View style={styles.container}>  
-      <Logo />
+     
 
         <TextInput
           style={styles.inputStyle}
-          placeholder="First_name"
-          value={this.state.First_name}
-          onChangeText={(val) => this.updateInputVal(val, 'First_name')}
+          placeholder="date"
+          value={this.state.date}
+          onChangeText={(val) => this.updateInputVal(val, 'date')}
         />     
          
         <TextInput
           style={styles.inputStyle}
-          placeholder="Last_name"
-          value={this.state.Last_name}
-          onChangeText={(val) => this.updateInputVal(val, 'Last_name')}
+          placeholder="location"
+          value={this.state.location}
+          onChangeText={(val) => this.updateInputVal(val, 'location')}
         />
         
          <TextInput
           style={styles.inputStyle}
-          type="date"
-
-          placeholder="date_of_birth"
-          value={this.state.date_of_birth}
-          onChangeText={(val) => this.updateInputVal(val, 'date_of_birth')}
+          placeholder="hour"
+          value={this.state.hour}
+          onChangeText={(val) => this.updateInputVal(val, 'hour')}
         />
         <TextInput
           style={styles.inputStyle}
-          placeholder="weight          "
-          value={this.state.weight}
+          placeholder="doctor          "
+          value={this.state.doctor}
           
-          onChangeText={(val) => this.updateInputVal(val, 'weight')}
+          onChangeText={(val) => this.updateInputVal(val, 'doctor')}
         />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Phone"
-          value={this.state.Phone}
-          onChangeText={(val) => this.updateInputVal(val, 'Phone')}
-        />
+       
        
         <Button
           color="#3740FE"
-          title="Signup"
+          title="Add"
           onPress={() => this.profilregister()}
         />
 
-        <Text 
-          style={styles.loginText}
-          onPress={() => this.props.navigation.navigate('Login')}>
-          Already Registered? Click here to login
-        </Text>                          
+                                
       </View>
       </TouchableWithoutFeedback>
     );
